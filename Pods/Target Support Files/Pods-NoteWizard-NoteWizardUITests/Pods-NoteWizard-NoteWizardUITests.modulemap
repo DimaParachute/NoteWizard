@@ -1,0 +1,6 @@
+framework module Pods_NoteWizard_NoteWizardUITests {
+  umbrella header "Pods-NoteWizard-NoteWizardUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

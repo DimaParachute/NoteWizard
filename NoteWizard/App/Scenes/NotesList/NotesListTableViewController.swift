@@ -1,0 +1,88 @@
+//
+//  NotesListTableViewController.swift
+//  NoteWizard
+//
+//  Created by Дмитрий Фетюхин on 23.09.2022.
+//
+
+import UIKit
+import RxSwift
+import RxCocoa
+
+final class NotesListTableViewController: UITableViewController {
+    
+    // MARK: - Dependencies
+    
+    let viewModel: INotesListViewModel
+    
+    private lazy var rightBarButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        button.setImage(UIImage(named: "plus"), for: .normal)
+        return button
+    }()
+    
+    let disposeBag = DisposeBag()
+
+    // MARK: - ViewController Lifecycle
+    
+    init(viewModel: INotesListViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(style: .plain)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupView()
+    }
+    
+    // MARK: - Private
+    
+    private func setupView() {
+        view.backgroundColor = .systemBackground
+        setupNavigationBar()
+        bind()
+    }
+    
+    private func setupNavigationBar() {
+        title = "Notes"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
+    }
+    
+    private func bind() {
+        rightBarButton.rx.tap
+            .bind {
+                print("go to creating")
+            }
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe { indexPath in
+                print(indexPath.row)
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
+// MARK: - TableViewDataSource + TableViewDelegate
+
+extension NotesListTableViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        5
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
