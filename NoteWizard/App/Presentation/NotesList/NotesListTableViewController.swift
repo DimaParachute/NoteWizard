@@ -15,9 +15,8 @@ final class NotesListTableViewController: UITableViewController {
     
     let viewModel: INotesListViewModel
     
-    private lazy var rightBarButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        button.setImage(UIImage(named: "plus"), for: .normal)
+    private lazy var rightBarButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(systemItem: .add)
         return button
     }()
     
@@ -38,6 +37,7 @@ final class NotesListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,18 +51,18 @@ final class NotesListTableViewController: UITableViewController {
     private func setupView() {
         view.backgroundColor = .systemBackground
         setupNavigationBar()
-        bind()
     }
     
     private func setupNavigationBar() {
         title = "Notes"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
+        navigationItem.rightBarButtonItem = rightBarButton
     }
     
     private func bind() {
+        guard let navigationController = navigationController else { return }
         rightBarButton.rx.tap
             .bind {
-                print("go to creating")
+                self.viewModel.routeToNoteCreating(navigationController: navigationController)
             }
             .disposed(by: disposeBag)
         

@@ -25,6 +25,8 @@
 		CC2F8EA128DD9F290003D4E7 /* NoteCreatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F8EA028DD9F290003D4E7 /* NoteCreatingViewController.swift */; };
 		CC2F8EA328DD9F3F0003D4E7 /* NoteCreatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F8EA228DD9F3F0003D4E7 /* NoteCreatingViewModel.swift */; };
 		CC2F8EA528DD9FB00003D4E7 /* NoteCreatingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F8EA428DD9FB00003D4E7 /* NoteCreatingAssembly.swift */; };
+		CC2F8EA828DDCFA20003D4E7 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F8EA728DDCFA20003D4E7 /* AppTextField.swift */; };
+		CC2F8EAA28DDD0960003D4E7 /* AppTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2F8EA928DDD0960003D4E7 /* AppTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		CC2F8EA028DD9F290003D4E7 /* NoteCreatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreatingViewController.swift; sourceTree = "<group>"; };
 		CC2F8EA228DD9F3F0003D4E7 /* NoteCreatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreatingViewModel.swift; sourceTree = "<group>"; };
 		CC2F8EA428DD9FB00003D4E7 /* NoteCreatingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreatingAssembly.swift; sourceTree = "<group>"; };
+		CC2F8EA728DDCFA20003D4E7 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
+		CC2F8EA928DDD0960003D4E7 /* AppTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextView.swift; sourceTree = "<group>"; };
 		E529680D5F4CA6048882B16D /* Pods-NoteWizardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteWizardTests.release.xcconfig"; path = "Target Support Files/Pods-NoteWizardTests/Pods-NoteWizardTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,18 +178,19 @@
 			children = (
 				CC2F8E9728DD8F340003D4E7 /* AppCoordinator.swift */,
 				CC2F8E9E28DD9D7B0003D4E7 /* Core */,
-				CC2F8E9528DD8EAB0003D4E7 /* Scenes */,
+				CC2F8E9528DD8EAB0003D4E7 /* Presentation */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		CC2F8E9528DD8EAB0003D4E7 /* Scenes */ = {
+		CC2F8E9528DD8EAB0003D4E7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CC2F8EA628DDCF7D0003D4E7 /* UIComponents */,
 				CC2F8E9F28DD9EF30003D4E7 /* NoteCreating */,
 				CC2F8E9628DD8EB50003D4E7 /* NotesList */,
 			);
-			path = Scenes;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		CC2F8E9628DD8EB50003D4E7 /* NotesList */ = {
@@ -213,6 +218,15 @@
 				CC2F8EA228DD9F3F0003D4E7 /* NoteCreatingViewModel.swift */,
 			);
 			path = NoteCreating;
+			sourceTree = "<group>";
+		};
+		CC2F8EA628DDCF7D0003D4E7 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				CC2F8EA728DDCFA20003D4E7 /* AppTextField.swift */,
+				CC2F8EA928DDD0960003D4E7 /* AppTextView.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		DAFD5F8DB27FF586A04416EF /* Frameworks */ = {
@@ -500,6 +514,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC2F8EA828DDCFA20003D4E7 /* AppTextField.swift in Sources */,
+				CC2F8EAA28DDD0960003D4E7 /* AppTextView.swift in Sources */,
 				CC2F8E6628DD8A690003D4E7 /* NotesListTableViewController.swift in Sources */,
 				CC2F8E9C28DD94E00003D4E7 /* NotesListAssembly.swift in Sources */,
 				CC2F8EA128DD9F290003D4E7 /* NoteCreatingViewController.swift in Sources */,
@@ -687,7 +703,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -717,7 +733,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
